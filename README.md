@@ -1,5 +1,8 @@
 # Composer Template
 
+[![Use this template](https://img.shields.io/badge/GitHub-Use_this_template-green.svg)](https://github.com/mouson/php-template/generate)
+[![Build Status](https://travis-ci.com/mouson/php-template.svg?branch=master)](https://travis-ci.com/mouson/php-template)
+
 PHP package template.
 
 Remember remove or modify following information:
