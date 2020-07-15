@@ -1,0 +1,38 @@
+{
+  "name": "mouson/php-template",
+  "description": "PHP package template",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "template"
+  ],
+  "authors": [
+    {
+      "name": "Mouson Chen",
+      "email": "mouson@gmail.com",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "php": "^7.1"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5",
+    "phpunit/phpunit": "^7.5 | ^8",
+    "phpstan/phpstan": "^0.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mouson\\Template\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "config": {
+    "preferred-install": "dist",
+    "sort-packages": true
+  }
+}
