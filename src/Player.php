@@ -25,22 +25,6 @@ class Player
     }
 
     /**
-     * @return string
-     */
-    public function getCategory(): string
-    {
-        return $this->category;
-    }
-
-    /**
-     * @return mixed|string
-     */
-    public function getWinnerPoint(): string
-    {
-        return $this->winnerPoint;
-    }
-
-    /**
      * @return mixed|string
      */
     public function getName(): string
