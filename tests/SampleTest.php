@@ -15,11 +15,21 @@ class SampleTest extends TestCase
     {
     }
 
-    /**
-     * @test
-     */
-    public function testSample(): void
+    public function test_tie()
     {
-        $this->assertTrue((new Sample())->isTrue());
+        $sample = new Sample();
+        $actual = $sample->parser('Amy:1 2 3 4  Lin:5 2 4 3');
+        $expected = 'Tie.';
+
+        $this->assertEquals($expected, $actual);
+    }
+
+    public function test_tie_amy_3333_lin_5555()
+    {
+        $sample = new Sample();
+        $actual = $sample->parser('Amy:3 3 3 3  Lin:5 5 5 5');
+        $expected = 'Lin wins, all the same kind:5';
+
+        $this->assertEquals($expected, $actual);
     }
 }
