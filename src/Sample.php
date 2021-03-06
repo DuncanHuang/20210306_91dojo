@@ -16,10 +16,11 @@ class Sample
         $firstPlayer = $this->parsePlayer($players[0]);
         $secondPlayer = $this->parsePlayer($players[1]);
 
-        if ($firstPlayer['category'] == 'no points' &&
-        $firstPlayer['category'] == $secondPlayer['category']) {
+        if ($firstPlayer['category']['name'] == 'no points' &&
+        $firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
             return 'Tie.';
-        }
+        }elseif($firstPlayer['category']['name'] == $secondPlayer['category']['name'])
+
 
         $winnerName = 'Lin';
 
@@ -40,7 +41,12 @@ class Sample
         $diceTimes = array_unique($diceSet);
         $diceCount = count($diceTimes);
         $category = 'no points';
+        $winnerPoint = 0;
+        if($diceCount==1) {
+            $category = 'all the same kind';
+            $winnerPoint = $diceSet[0];
+        }
 
-        return array('name' => $name, 'diceSet' => $diceSet, 'category' => $category);
+        return array('name' => $name, 'diceSet' => $diceSet, 'category' => ['name'=>$category, 'winnerPoint'=>$winnerPoint]);
     }
 }
