@@ -42,5 +42,14 @@ class Dice
             $this->category    = 'all the same kind';
             $this->winnerPoint = $diceSet[0];
         }
+
+        if ($diceCount == 3) {
+            $this->category    = 'normal point';
+        }
+    }
+
+    public function isCategoryNoPoint()
+    {
+        return $this->category == "no point";
     }
 }
