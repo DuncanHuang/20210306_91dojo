@@ -9,6 +9,8 @@ class Dice
      */
     private $category;
 
+    private $winnerPoint;
+
     /**
      * @return string
      */
@@ -16,7 +18,6 @@ class Dice
     {
         return $this->category;
     }
-
     /**
      * @return int
      */
@@ -24,7 +25,6 @@ class Dice
     {
         return $this->winnerPoint;
     }
-    private $winnerPoint;
 
     /**
      * Dice constructor.
@@ -39,8 +39,8 @@ class Dice
         $this->winnerPoint = 0;
 
         if ($diceCount == 1) {
-//            $this->category    = 'all the same kind';
-//            $this->winnerPoint = $diceSet[0];
+            $this->category    = 'all the same kind';
+            $this->winnerPoint = $diceSet[0];
         }
     }
 }

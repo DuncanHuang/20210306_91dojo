@@ -16,12 +16,12 @@ class Sample
         $firstPlayer = new Player($players[0]);
         $secondPlayer = new Player($players[1]);
 
-        if ($firstPlayer->getCategory() == 'no points' &&
-        $firstPlayer->getCategory() == $secondPlayer->getCategory()) {
+        if ($firstPlayer->getDice()->getCategory() == 'no points' &&
+        $firstPlayer->getDice()->getCategory() == $secondPlayer->getDice()->getCategory()) {
             return 'Tie.';
         }
 
-        if ($firstPlayer->getCategory() == $secondPlayer->getCategory()) {
+        if ($firstPlayer->getDice()->getCategory() == $secondPlayer->getDice()->getCategory()) {
             if (($firstPlayer->getWinnerPoint() == $secondPlayer->getWinnerPoint())){
                 return'Tie.';
             }

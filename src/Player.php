@@ -12,8 +12,7 @@ class Player
     /**
      * Player constructor.
      *
-     * @param mixed|string $name
-     * @param false|string[] $diceSet
+     * @param string $input
      */
     public function __construct(string $input)
     {
@@ -47,5 +46,13 @@ class Player
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return Dice
+     */
+    public function getDice(): Dice
+    {
+        return $this->dice;
     }
 }
