@@ -16,17 +16,17 @@ class Sample
         $firstPlayer = $this->parsePlayer($players[0]);
         $secondPlayer = $this->parsePlayer($players[1]);
 
-        if ($firstPlayer['category']['name'] == 'no points' &&
-        $firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
+        if ($firstPlayer->getCategory() == 'no points' &&
+        $firstPlayer->getCategory() == $secondPlayer->getCategory()) {
             return 'Tie.';
         }
 
-        if ($firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
-            if (($firstPlayer['category']['winnerPoint'] == $secondPlayer['category']['winnerPoint'])){
+        if ($firstPlayer->getCategory() == $secondPlayer->getCategory()) {
+            if (($firstPlayer->getWinnerPoint() == $secondPlayer->getWinnerPoint())){
                 return'Tie.';
             }
-            $winner = ($firstPlayer['category']['winnerPoint'] > $secondPlayer['category']['winnerPoint'])? $firstPlayer : $secondPlayer;
-            return $winner['name'] . " wins, all the same kind:" . $winner['category']['winnerPoint'];
+            $winner = ($firstPlayer->getWinnerPoint() > $secondPlayer->getWinnerPoint())? $firstPlayer : $secondPlayer;
+            return $winner['name'] . " wins, all the same kind:" . $winner->getWinnerPoint();
         }
 
         $winnerName = 'Lin';
@@ -37,23 +37,18 @@ class Sample
     /**
      * @param string $play
      *
-     * @return array
+     * @return Player
      */
-    protected function parsePlayer(string $play): array
+    protected function parsePlayer(string $play): Player
     {
         $name    = explode(':', $play)[0];
         $dices   = explode(':', $play)[1];
         $diceSet = explode(' ', $dices);
 
-        $diceTimes = array_unique($diceSet);
-        $diceCount = count($diceTimes);
-        $category = 'no points';
-        $winnerPoint = 0;
-        if($diceCount==1) {
-            $category = 'all the same kind';
-            $winnerPoint = $diceSet[0];
-        }
-
-        return array('name' => $name, 'diceSet' => $diceSet, 'category' => ['name'=>$category, 'winnerPoint'=>$winnerPoint]);
+        return new Player($name, $diceSet);
+//        return array(
+//            'name'     => $name, 'diceSet' => $diceSet,
+//            'category' => ['name' => $category, 'winnerPoint' => $winnerPoint],
+//        );
     }
 }
