@@ -32,6 +32,12 @@ class Sample
         $dices   = explode(':', $play)[1];
         $diceSet = explode(' ', $dices);
 
-        return array('name' => $name, 'diceSet' => $diceSet);
+        $diceTimes = array_unique($diceSet);
+        $diceCount     = count($diceTimes);
+        $category='';
+        if ($diceCount==4) {
+            $category = 'no points';
+        }
+        return array('name' => $name, 'diceSet' => $diceSet, 'category' => $category);
     }
 }
