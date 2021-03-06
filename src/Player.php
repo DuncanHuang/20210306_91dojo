@@ -7,6 +7,7 @@ class Player
     private $category;
     private $winnerPoint;
     private $name;
+    private $dice;
 
     /**
      * Player constructor.
@@ -14,18 +15,14 @@ class Player
      * @param mixed|string $name
      * @param false|string[] $diceSet
      */
-    public function __construct(string $name, $diceSet)
+    public function __construct(string $input)
     {
-        $diceTimes         = array_unique($diceSet);
-        $diceCount         = count($diceTimes);
-        $this->name        = $name;
-        $this->category    = 'no points';
-        $this->winnerPoint = 0;
 
-        if ($diceCount == 1) {
-            $this->category    = 'all the same kind';
-            $this->winnerPoint = $diceSet[0];
-        }
+        $this->name    = explode(':', $input)[0];
+        $dices   = explode(':', $input)[1];
+        $diceSet = explode(' ', $dices);
+
+        $this->dice        = new Dice($diceSet);
     }
 
     /**
