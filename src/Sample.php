@@ -19,7 +19,19 @@ class Sample
         if ($firstPlayer['category']['name'] == 'no points' &&
         $firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
             return 'Tie.';
-        }elseif($firstPlayer['category']['name'] == $secondPlayer['category']['name'])
+        }
+
+        if($firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
+
+            $winnerPoint = $secondPlayer['category']['winnerPoint'];
+            $winnerName = $secondPlayer['name'];
+            if ($firstPlayer['category']['winnerPoint'] > $secondPlayer['category']['winnerPoint']) {
+                $winnerPoint = $firstPlayer['category']['winnerPoint'];
+                $winnerName = $firstPlayer['name'];
+            }
+            return $winnerName . " wins, all the same kind:" . $winnerPoint;
+
+        }
 
 
         $winnerName = 'Lin';
