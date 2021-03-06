@@ -21,18 +21,13 @@ class Sample
             return 'Tie.';
         }
 
-        if($firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
-
-            $winnerPoint = $secondPlayer['category']['winnerPoint'];
-            $winnerName = $secondPlayer['name'];
-            if ($firstPlayer['category']['winnerPoint'] > $secondPlayer['category']['winnerPoint']) {
-                $winnerPoint = $firstPlayer['category']['winnerPoint'];
-                $winnerName = $firstPlayer['name'];
+        if ($firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
+            if (($firstPlayer['category']['winnerPoint'] == $secondPlayer['category']['winnerPoint'])) {
+                
             }
-            return $winnerName . " wins, all the same kind:" . $winnerPoint;
-
+            $winner = ($firstPlayer['category']['winnerPoint'] > $secondPlayer['category']['winnerPoint'])? $firstPlayer : $secondPlayer;
+            return $winner['name'] . " wins, all the same kind:" . $winner['category']['winnerPoint'];
         }
-
 
         $winnerName = 'Lin';
 
