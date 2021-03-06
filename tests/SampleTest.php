@@ -40,4 +40,13 @@ class SampleTest extends TestCase
 
         $this->assertEquals($expected, $actual);
     }
+    public function test_lin_win_normal_point()
+    {
+        $sample = new Sample();
+        $actual = $sample->parser('Amy:1 1 1 1  Lin:1 1 1 1');
+        $expected = 'Tie.';
+
+        $this->assertEquals($expected, $actual);
+    }
+
 }

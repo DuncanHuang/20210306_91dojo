@@ -22,8 +22,8 @@ class Sample
         }
 
         if ($firstPlayer['category']['name'] == $secondPlayer['category']['name']) {
-            if (($firstPlayer['category']['winnerPoint'] == $secondPlayer['category']['winnerPoint'])) {
-                
+            if (($firstPlayer['category']['winnerPoint'] == $secondPlayer['category']['winnerPoint'])){
+                return'Tie.';
             }
             $winner = ($firstPlayer['category']['winnerPoint'] > $secondPlayer['category']['winnerPoint'])? $firstPlayer : $secondPlayer;
             return $winner['name'] . " wins, all the same kind:" . $winner['category']['winnerPoint'];
